@@ -8,6 +8,8 @@ trainData = ("What is the time complexity of the merge Sort algorithm?",{"entiti
 ("Selection Sort explanation",{"entities":[(0,14,"Algorithm"),(15,26,"Action")]}),
 ("Big O notation of selection Sort",{"entities":[(18,32,"Algorithm"),(0,5,"Action")]}),
 ("What is the time complexity of the Selection Sort algorithm?",{"entities":[(12,27,"Action"),(35,49,"Algorithm")]}),
+("Which is bigger, O(n) or O(log(n))",{"entities":[(9,15,"Action"),(17,21,"Algorithm"),(25,34,"Algorithm")]}),
+("Which is bigger, O(n) or O(log(2n))",{"entities":[(8,15,"Action"),(17,21,"Algorithm"),(25,35,"Algorithm")]}),
 
 
 nlp = spacy.blank('en')  # load a new spacy model
@@ -27,3 +29,7 @@ for text, annot in tqdm(trainData):  # data in previous format
     except:
         print(text, annot)
 db.to_disk('./train.spacy')  # save the docbin object
+
+# python3 main.py
+# python3 -m spacy train config.cfg --output ./output --paths.train ./train.spacy --paths.dev ./train.spacy
+# python3 test.py
